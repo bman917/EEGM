@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131222162016) do
+ActiveRecord::Schema.define(version: 20131223172336) do
 
   create_table "phones", force: true do |t|
     t.integer  "supplier_id"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20131222162016) do
   end
 
   add_index "phones", ["supplier_id"], name: "index_phones_on_supplier_id"
+
+  create_table "purchase_orders", force: true do |t|
+    t.integer  "supplier_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "contact_person"
+  end
+
+  add_index "purchase_orders", ["supplier_id"], name: "index_purchase_orders_on_supplier_id"
 
   create_table "suppliers", force: true do |t|
     t.text     "name"

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date Time:</strong>
+  <%= @purchase_order.created_at.to_s(:time) %>
+</p>
+
+
+<p>
+  <strong>Supplier:</strong>
+  <%= @purchase_order.supplier.name %>
+</p>
+
+<p>
+  <strong>Contact Person:</strong>
+  <%= @purchase_order.contact_person %>
+</p>
+
+<%= link_to 'Edit', edit_purchase_order_path(@purchase_order) %> |
+<%= link_to 'Back', purchase_orders_path %>

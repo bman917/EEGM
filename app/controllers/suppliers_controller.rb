@@ -4,7 +4,9 @@ class SuppliersController < ApplicationController
   # GET /suppliers
   # GET /suppliers.json
   def index
-    @suppliers = Supplier.all
+    #@suppliers = Supplier.all
+    @suppliers = Supplier.order(:name).where("name like ?", "%#{params[:term]}%")
+    render json: @suppliers.map(&:name)
   end
 
   # GET /suppliers/1
