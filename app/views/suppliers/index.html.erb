@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Contact Number</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,6 +15,13 @@
     <% @suppliers.each do |supplier| %>
       <tr>
         <td><%= supplier.name %></td>
+        <td>
+          <% supplier.phones.each do | phone | %>
+             <%= phone.number %>
+          <% end %>
+
+        </td>
+
         <td><%= link_to 'Show', supplier %></td>
         <td><%= link_to 'Edit', edit_supplier_path(supplier) %></td>
         <td><%= link_to 'Destroy', supplier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
