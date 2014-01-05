@@ -9,7 +9,7 @@
 <body>
 <div id="user_nav">
   <% if current_user %>
-    Signed in via Google as <%= current_user.name %>!
+    Signed in via Google as <%=current_user.name%> (<%=current_user.email%>)!
     <%= link_to "Sign out", signout_path %>
     <p>
     <%= link_to 'Get Contacts', gcontacts_path %>

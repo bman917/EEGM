@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140105040821) do
+ActiveRecord::Schema.define(version: 20140105061351) do
 
   create_table "phones", force: true do |t|
     t.integer  "supplier_id"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20140105040821) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "token"
+    t.string   "email",      limit: nil
   end
 
 end
