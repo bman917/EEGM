@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131223172336) do
+ActiveRecord::Schema.define(version: 20140105040821) do
 
   create_table "phones", force: true do |t|
     t.integer  "supplier_id"
@@ -38,5 +38,14 @@ ActiveRecord::Schema.define(version: 20131223172336) do
   end
 
   add_index "suppliers", ["name"], name: "index_suppliers_on_name", unique: true
+
+  create_table "users", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "token"
+  end
 
 end

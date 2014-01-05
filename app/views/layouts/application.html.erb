@@ -7,6 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="user_nav">
+  <% if current_user %>
+    Signed in as <%= current_user.name %>!
+    <%= link_to "Sign out", signout_path %>
+    </br>
+    User id: <%=current_user.uid%></br>
+    Google Token: <%=current_user.token%>
+
+  <% else %>
+    <%= link_to "Sign in with Google", "/auth/google_oauth2"%>
+  <% end %>
+
+</div>
+
+</br>
+
+<%@contacts.each do | c |  %>
+  <%=c.title.text%></br>
+<% end if @contacts%>
+
+
+
 
 <%= yield %>
 

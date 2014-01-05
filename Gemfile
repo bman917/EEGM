@@ -51,3 +51,6 @@ group :development do
 end
 
 gem 'jquery-ui-rails'
+gem "omniauth-google-oauth2"
+gem "google_contacts_api", "~> 0.3.3"
+gem "nokogiri"

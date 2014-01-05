@@ -1,10 +1,27 @@
+require 'open-uri'
+require 'nokogiri'
+
 class PurchaseOrdersController < ApplicationController
   before_action :set_purchase_order, only: [:show, :edit, :update, :destroy]
 
   # GET /purchase_orders
   # GET /purchase_orders.json
   def index
+    if current_user
+      #@google_contacts_user = GoogleContactsApi::User.new(current_user.token)
+      #@contacts = @google_contacts_user.contacts
+
+      #gcontacts = "https://www.google.com/m8/feeds/contacts/default/full?max-results=1000&v=3.0&access_token=#{current_user.token}"
+
+      #@raw = Nokogiri::Slop(open(gcontacts))
+      #@contacts = @raw.html.body.feed.entry
+
+      #contacts = open(gcontacts)
+
+    end
     @purchase_orders = PurchaseOrder.all
+
+    @user = request.env['omniauth.auth']  if request.env['omniauth.auth']
   end
 
   # GET /purchase_orders/1
