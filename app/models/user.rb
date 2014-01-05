@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 	  	user.token = auth["credentials"]["token"]
 	  	user.save
 	  else
-	  	create_from_omniauth(auth)
+	  	user = create_from_omniauth(auth)
 	  end
 
 	  return user
