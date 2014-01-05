@@ -7,21 +7,21 @@ class PurchaseOrdersController < ApplicationController
   # GET /purchase_orders
   # GET /purchase_orders.json
   def index
+
+    @purchase_orders = PurchaseOrder.all
+
+    @user = request.env['omniauth.auth']  if request.env['omniauth.auth']
+  end
+
+  def contacts
     if current_user
       #@google_contacts_user = GoogleContactsApi::User.new(current_user.token)
       #@contacts = @google_contacts_user.contacts
 
-      #gcontacts = "https://www.google.com/m8/feeds/contacts/default/full?max-results=1000&v=3.0&access_token=#{current_user.token}"
-
-      #@raw = Nokogiri::Slop(open(gcontacts))
-      #@contacts = @raw.html.body.feed.entry
-
-      #contacts = open(gcontacts)
-
+        gcontacts = "https://www.google.com/m8/feeds/contacts/default/full?max-results=1000&v=3.0&access_token=#{current_user.token}"
+        @raw = Nokogiri::Slop(open(gcontacts))
+        @contacts = @raw.html.body.feed.entry
     end
-    @purchase_orders = PurchaseOrder.all
-
-    @user = request.env['omniauth.auth']  if request.env['omniauth.auth']
   end
 
   # GET /purchase_orders/1

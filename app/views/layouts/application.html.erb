@@ -9,23 +9,21 @@
 <body>
 <div id="user_nav">
   <% if current_user %>
-    Signed in as <%= current_user.name %>!
+    Signed in via Google as <%= current_user.name %>!
     <%= link_to "Sign out", signout_path %>
-    </br>
-    User id: <%=current_user.uid%></br>
-    Google Token: <%=current_user.token%>
+    <p>
+    <%= link_to 'Get Contacts', gcontacts_path %>
 
   <% else %>
     <%= link_to "Sign in with Google", "/auth/google_oauth2"%>
   <% end %>
+  <p>
+  <%= link_to "Purchase Orders", purchase_orders_path%>
 
 </div>
 
 </br>
 
-<%@contacts.each do | c |  %>
-  <%=c.title.text%></br>
-<% end if @contacts%>
 
 
 
