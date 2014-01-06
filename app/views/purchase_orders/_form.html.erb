@@ -31,6 +31,17 @@ $(document).ready(function(){
     <%= f.label :contact_person %><br>
     <%= f.text_field :contact_person %><br>
   </div>
+
+  <div class="field">
+    <div class="phones">
+      <div class="phone_entry">
+        <%= label_tag :phone, "Phone 1" %><br>
+        <%= text_field_tag :phone, "", name: "phone[1]" %><br>
+      </div>
+    </div>
+  <%= label_tag(:add_phone, "Add Phone", id: "add_phone")%>
+  </div>
+
   
   <div class="actions">
     <%= f.submit %>

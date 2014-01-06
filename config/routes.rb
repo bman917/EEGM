@@ -1,5 +1,7 @@
 Eegm::Application.routes.draw do
 
+  resources :items
+
   resources :purchase_orders
 
   resources :phones
